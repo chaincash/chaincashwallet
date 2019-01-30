@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Chaincash
+Comment=Chaincash P2P Cryptocurrency
+Comment[fr]=Chaincash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Chaincash, eşten eşe kriptografik sanal para birimi
+Exec=chaincash-qt %u
+Terminal=false
+Type=Application
+Icon=chaincash128
+MimeType=x-scheme-handler/chaincash;
+Categories=Office;Finance;

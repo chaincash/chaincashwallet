@@ -1,0 +1,26 @@
+[Unit]
+Description=Chaincash's distributed currency daemon
+After=network.target
+
+[Service]
+User=chaincash
+Group=chaincash
+
+Type=forking
+PIDFile=/var/lib/chaincashd/chaincashd.pid
+
+ExecStart=/usr/bin/chaincashd -daemon -pid=/var/lib/chaincashd/chaincashd.pid \
+          -conf=/etc/chaincash/chaincash.conf -datadir=/var/lib/chaincashd
+
+ExecStop=-/usr/bin/chaincash-cli -conf=/etc/chaincash/chaincash.conf \
+         -datadir=/var/lib/chaincashd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
